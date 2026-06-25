@@ -45,3 +45,9 @@ Run the `ExtensionAppgroup` scheme, then use the app controls to start/update th
 - The README intentionally avoids private GitHub image URLs because those expire and break public rendering.
 - Keep the ActivityKit attributes stable; they are the contract between the app and widget extension.
 - For production use, updates should come from the real ride/order state machine, not from manual demo buttons.
+
+## Author
+
+Dambert Muñoz
+
+Email: [dmsantillana2705@gmail.com](mailto:dmsantillana2705@gmail.com)
