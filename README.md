@@ -1,30 +1,47 @@
+# Uber-Style Live Activity Demo
 
-# UberLiveActivityApp
+SwiftUI and WidgetKit sample that demonstrates an Uber-style ride status Live Activity with Dynamic Island support.
 
-https://medium.com/@dmsantillana2705/creating-a-basic-live-activity-for-an-uber-like-app-on-ios-part-1-cc738506d723
+The project is structured as a small app plus a widget extension so the ActivityKit model, Live Activity lifecycle operations, and widget rendering can be inspected separately.
 
-![Live Activity Demo](https://private-user-images.githubusercontent.com/66708463/352776968-84b5524b-88ae-4cc6-8bb0-6bf93e7df653.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjIxMTQ0ODQsIm5iZiI6MTcyMjExNDE4NCwicGF0aCI6Ii82NjcwODQ2My8zNTI3NzY5NjgtODRiNTUyNGItODhhZS00Y2M2LThiYjAtNmJmOTNlN2RmNjUzLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MjclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzI3VDIxMDMwNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTJiMWQwYzhjNDVhODA4YWFmY2Y1ZmM3MWE0NTk3OGNjMDZiOTA1MDcwODU0OTI3YzAxZTVkNDhmOGUwMWZlYzcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.qIdWsUJRESeNQMr6pq7y91KNWLZ8QX_Ppp0q89ZiTpo)
+## What This Project Shows
 
-This project demonstrates how to create a live activity for an Uber-like app using SwiftUI and WidgetKit on iOS. The live activity displays real-time information about an ongoing ride, including the driver’s name, car model, and pickup time.
+- ActivityKit attributes for a ride/order flow.
+- SwiftUI app controls for starting and updating a Live Activity.
+- Widget extension rendering for lock screen and Dynamic Island states.
+- Shared visual assets between the app and extension.
+- A compact example that pairs with the related Medium walkthrough.
 
-## Features
+## Main Modules
 
-- Live Activity to track ride status
-- Dynamic Island integration for quick updates
-- Interactive and visually appealing UI
+| Path | Responsibility |
+| --- | --- |
+| `ExtensionAppgroup/ContentView.swift` | Demo app UI |
+| `ExtensionAppgroup/UberRideOperations.swift` | Start/update/end Live Activity operations |
+| `WidgetExtension/UberLiveActivity/UberOrderLiveActivityAttributes.swift` | ActivityKit data contract |
+| `WidgetExtension/UberLiveActivity/UberOrderLiveActivityView.swift` | SwiftUI Live Activity view |
+| `WidgetExtension/UberLiveActivity/UberOrderLiveActivityWidget.swift` | Widget entry point |
 
-## Prerequisites
+## Requirements
 
-- Xcode 13.0 or later
-- iOS 16.0 or later
-- Basic understanding of SwiftUI and WidgetKit
+- Xcode with ActivityKit support.
+- iOS 16.1+ for Live Activities.
+- A simulator or device that supports Dynamic Island previews for the expanded UI states.
 
-## Getting Started
+## Running
 
-### 1. Clone the Repository
+```sh
+open ExtensionAppgroup.xcodeproj
+```
 
-```bash
-git https://github.com/dambertmunoz/LiveActivityExtension
-cd LiveActivityExtension
- 
+Run the `ExtensionAppgroup` scheme, then use the app controls to start/update the Live Activity.
 
+## Related Article
+
+[Creating a basic Live Activity for an Uber-like app on iOS](https://medium.com/@dmsantillana2705/creating-a-basic-live-activity-for-an-uber-like-app-on-ios-part-1-cc738506d723)
+
+## Technical Notes
+
+- The README intentionally avoids private GitHub image URLs because those expire and break public rendering.
+- Keep the ActivityKit attributes stable; they are the contract between the app and widget extension.
+- For production use, updates should come from the real ride/order state machine, not from manual demo buttons.
